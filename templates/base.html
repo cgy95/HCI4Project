@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Nutritracker - {% block title %}Track Your Diet!{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{STATIC_URL}}/css/base.css" />
+  </head>
+
+  <body>
+
+      <ul class ="unorderedList">
+          <li class ="list" ><a class= "navbar-text" href="#home">Nutritracker</a></li>
+          <!--<li class ="list"><a class= "navbar-text"href="#news">Enter Data</a></li> -->
+          <li class ="list"><a class= "navbar-text" href="#contact">Invite a Supervisor</a></li>
+          <li class ="list" style="float:right"><a class= "navbar-text" href>Login</a></li>
+      </ul> 
+     <div>
+          {% block body_block %}{% endblock %}
+     </div>
+  </body>
+</html>
