@@ -15,10 +15,10 @@
   <body>
 
       <ul class ="unorderedList">
-          <li class ="list" ><a class= "navbar-text" href="#home">Nutritracker</a></li>
+          <li class ="list" ><a class= "navbar-text" href="{% url 'index' %}">Nutritracker</a></li>
           <!--<li class ="list"><a class= "navbar-text"href="#news">Enter Data</a></li> -->
           <li class ="list"><a class= "navbar-text" href="#contact">Invite a Supervisor</a></li>
-          <li class ="list" style="float:right"><a class= "navbar-text" href>Login</a></li>
+          <li class ="list" style="float:right"><a href="{% url 'login' %}" class= "navbar-text" href>Login</a></li>
       </ul> 
      <div>
           {% block body_block %}{% endblock %}

@@ -1,0 +1,38 @@
+#heading {
+     text-align: center;
+     font-size: 48px;
+     font-weight: bold;
+     margin: auto;
+     top: 100px;
+     position: relative;
+     left: 0px;
+}
+
+.center {
+     padding-top: 150px;
+     margin: auto;
+     width: 600px;
+     height: 600px;
+}
+
+#id_username {
+     width: 500px;
+     margin-bottom: 20px;
+}
+
+#id_password {
+     width: 500px;
+     margin-bottom: 60px;
+}
+
+#login_button {
+     padding: 35px 220px; 
+     margin-bottom: 60px;
+}
+
+#registerButton {
+     text-align: center;
+     margin: auto;
+     height: 50px;
+     font-size: 18px;
+}

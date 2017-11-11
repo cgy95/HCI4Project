@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+
+<link rel="stylesheet" href="{{STATIC_URL}}css/registration/register.css" />
+
+<form role="form"  method="post" action=".">
+                {% csrf_token %}
+
+<h2 id="heading" class="form-signin-heading">Sign Up To Nutritracker</h2>
+  <div class="page_center">
+    <div class="form-group" >
+       <p class="required"> <label for="id_username">Username:</label>
+       <input class="form-control"  id="id_username" maxlength="30" name="username" type="text"  placeholder="Enter username"/></p>
+    </div>
+
+    <div class="form-group">
+        <p class="required"><label for="id_password1">Password:</label>
+        <input class="form-control" id="id_password1" name="password1" type="password" placeholder="Enter password" /></p>
+    </div>
+
+    <div class="form-group">
+       <p class="required"><label for="id_password2">Password (again):</label>
+       <input class="form-control" id="id_password2" name="password2" type="password" placeholder="Enter password again" /></p>
+    </div>
+
+    <button id="signUpButton" type="submit" class="btn btn-lg btn-primary btn-block">Sign Up</button>
+
+    </form>
+  </div>
+{% endblock %}

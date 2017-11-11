@@ -5,4 +5,5 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'hci4_project.views.index', name='index'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^registration/', include('registration.urls')),
 )
