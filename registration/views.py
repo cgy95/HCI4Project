@@ -31,7 +31,11 @@ def register(request):
 
             # Update our variable to tell the template registration was successful.
             registered = True
-	    return HttpResponseRedirect('/registration')
+	    new_user = authenticate(username=user_form.cleaned_data['username'],
+                                    password=user_form.cleaned_data['password'],
+                                    )
+      	    login(request, new_user)
+	    return HttpResponseRedirect('/')
 
         # Invalid form or forms - mistakes or something else?
         # Print problems to the terminal.
