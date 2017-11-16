@@ -11,10 +11,7 @@
 
 <form role="form"  method="post" >
                 {% csrf_token %}
-{% if registered %}
-        Rango says: <strong>thank you for registering!</strong>
-        <a href="/rango/">Return to the homepage.</a><br />
-        {% else %}
+
 <h2 id="heading" class="form-signin-heading">Sign Up To Nutritracker</h2>
   <div class="page_center">
     <div class="form-group" >
@@ -36,5 +33,5 @@
 
     </form>
   </div>
-{% endif %}
+
 {% endblock %}
