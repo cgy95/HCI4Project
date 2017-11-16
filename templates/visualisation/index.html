@@ -3,10 +3,16 @@
 {% extends 'base.html' %}
 
 {% block body_block %} 
+
 <link rel="stylesheet" href="{{STATIC_URL}}css/index.css" />
        <div id= mainSection class="inner cover">
-            <h1 class="heading">You've logged in!</h1><br>
-            <p class="descAndButtons">[Visualisation here]</p> 
+            <h1 class="heading">A graph! </h1><br>
+            <p class="descAndButtons">Do you want to lose, gain or maintain weight? <br> Find out your Daily Calorie Intake. 
+              <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
+              {{ div | safe }}
+              <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+              {{ script | safe }}
+            </p>
         </div>
 
 {% endblock %}
