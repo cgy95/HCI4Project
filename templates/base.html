@@ -22,16 +22,20 @@
 		  	<li class="list"><a class= "navbar-text" href="#contact">Invite a Supervisor</a></li>
                 {% endif %}
                 {% if is_supervisor == True %}
-		  	<li class="list"><a class= "navbar-text" href="#contact">Your Supervisees</a></li>
+		  	<li class="supervisor-dropdown">
+                          <a href="javascript:void(0)" class= "supervisor-dropbtn">Your Supervisees</a>
+                          <div class="supervisor-dropdown-content">
+			      <a href="">Client1</a>
+	    		      <a href="">Client2</a>
+	 		  </div>
                 {% endif %}
 			 <li class="dropdown" style="float:right">
 	  		   <a href="javascript:void(0)" class= "dropbtn">{{ user.username }}</a>
 		           <div class="dropdown-content">
-			      <a href="">Another function</a>
+			      <a href="">Account Settings</a>
 	    		      <a href="{% url 'logout' %}">Logout</a>
 	 		   </div>
 			 </li> 
-			<!--<a href="{% url 'logout' %}" class= "navbar-text" href>Logout</a>-->
 	  {% else %}
 		<li class="list" style="float:right"><a href="{% url 'login' %}" class= "navbar-text" href>Login</a></li>
 	  {% endif %}

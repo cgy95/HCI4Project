@@ -79,3 +79,55 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
+
+li.supervisor-dropdown {
+    border-left: 1px solid #bbb;
+    text-decoration: none;
+    display: inline-block;
+}
+
+li a:hover, .supervisor-dropdown:hover .supervisor-dropbtn {
+    background-color: grey;
+}
+
+.supervisor-dropbtn {
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    padding: 14px 18px;
+    text-decoration: none;
+}
+
+
+.supervisor-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.supervisor-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.supervisor-dropdown-content a:hover {
+    background-color: #f1f1f1}
+
+.supervisor-dropdown:hover .supervisor-dropdown-content {
+    display: block;
+}
+
+.supervisor-dropdown-content:hover .supervisor-dropdown-content {
+    display: block;
+}
+
+
