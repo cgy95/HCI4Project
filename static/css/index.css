@@ -7,8 +7,15 @@
     height: 400px;
 }
 
+
 .heading {
    text-align: left;
+   font-size: 48px;
+   font-weight: bold;
+}
+
+.heading2 {
+   text-align: center;
    font-size: 48px;
    font-weight: bold;
 }
@@ -51,5 +58,23 @@
 }
 
 #signUpRedirect:hover {
+    opacity: 0.7;
+}
+
+#ClientsRedirect {
+   position: relative;
+    left: 40px;
+    top: 70px;
+    border-radius: 8px;
+    background-color: #4da6ff;
+    border: none;
+    color: white;
+    padding: 40px 100px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#ClientsRedirect:hover {
     opacity: 0.7;
 }
