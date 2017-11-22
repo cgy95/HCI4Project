@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from registration.forms import UserForm
+from registration.forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -17,10 +17,10 @@ def register(request):
         # Attempt to grab information from the raw form information.
         # Note that we make use of both UserForm and UserProfileForm.
         user_form = UserForm(data=request.POST)
-        #profile_form = UserProfileForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST)
 
         # If the the form is valid...
-        if user_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid():
             # Save the user's form data to the database.
             user = user_form.save()
 
@@ -29,19 +29,25 @@ def register(request):
             user.set_password(user.password)
             user.save()
 
+            profile = profile_form.save(commit=False)
+            profile.user = user
+
+            profile.save()
             # Update our variable to tell the template registration was successful.
             registered = True
+
 	    new_user = authenticate(username=user_form.cleaned_data['username'],
                                     password=user_form.cleaned_data['password'],
                                     )
       	    login(request, new_user)
+
 	    return HttpResponseRedirect('/')
 
         # Invalid form or forms - mistakes or something else?
         # Print problems to the terminal.
         # They'll also be shown to the user.
         else:
-            print user_form.errors
+            print user_form.errors, profile_form.errors
 
     # Not a HTTP POST, so we render our form using two ModelForm instances.
     # These forms will be blank, ready for user input.

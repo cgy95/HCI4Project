@@ -18,15 +18,20 @@
           <li class="list"><a class= "navbar-text" href="{% url 'index' %}">Nutritracker</a></li>
           <!--<li class ="list"><a class= "navbar-text"href="#news">Enter Data</a></li> -->
 	  {% if user.is_authenticated %}
-          	<li class="list"><a class= "navbar-text" href="#contact">Invite a Supervisor</a></li>
-		 <li class="dropdown" style="float:right">
-  		   <a href="javascript:void(0)" class= "dropbtn">{{ user.username }}</a>
-                   <div class="dropdown-content">
-		      <a href="">Another function</a>
-    		      <a href="{% url 'logout' %}">Logout</a>
- 		   </div>
-	         </li> 
-		<!--<a href="{% url 'logout' %}" class= "navbar-text" href>Logout</a>-->
+                {% if is_supervisor == False %}
+		  	<li class="list"><a class= "navbar-text" href="#contact">Invite a Supervisor</a></li>
+                {% endif %}
+                {% if is_supervisor == True %}
+		  	<li class="list"><a class= "navbar-text" href="#contact">Your Supervisees</a></li>
+                {% endif %}
+			 <li class="dropdown" style="float:right">
+	  		   <a href="javascript:void(0)" class= "dropbtn">{{ user.username }}</a>
+		           <div class="dropdown-content">
+			      <a href="">Another function</a>
+	    		      <a href="{% url 'logout' %}">Logout</a>
+	 		   </div>
+			 </li> 
+			<!--<a href="{% url 'logout' %}" class= "navbar-text" href>Logout</a>-->
 	  {% else %}
 		<li class="list" style="float:right"><a href="{% url 'login' %}" class= "navbar-text" href>Login</a></li>
 	  {% endif %}
