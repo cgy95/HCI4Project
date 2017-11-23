@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from bokeh.plotting import figure, output_file, show 
 from bokeh.embed import components
 from bokeh.models import LinearAxis, Range1d
+from bokeh.models import HoverTool
 
 # Create your views here.
 def index(request):
@@ -20,6 +21,21 @@ def client1(request):
 	x=["20-Oct-17", "27-Oct-17", "02-Nov-17", "09-Nov-17", "16-Nov-17", "23-Nov-17", "30-Nov-17"]
         y= [2500,2250,2300, 2150,2050,2100,2200]
         title = 'Weight and Calories over Time'
+	extra_y = [85, 84, 82, 83, 83, 82, 85]
+
+	
+	hover = HoverTool(tooltips=[
+	    ("index", "$index"),
+	    ("(x,y)", "($x, $y)"),
+	    ("calories", "@y"),
+	], names=["calories"])
+
+	hoverweight = HoverTool(tooltips=[
+	    ("index", "$index"),
+	    ("(x,y)", "($x, $y)"),
+	    ("weight", "@extra_y"),
+	], names=["weight"])
+
 
         plot = figure(title= title ,
 	    x_range = x, 
@@ -27,16 +43,19 @@ def client1(request):
             x_axis_label= 'Time', 
             y_axis_label= 'Calories', 
             plot_width =600,
-            plot_height =400)
+            plot_height =400,
+	    tools=[hover]
 
-        plot.line(x, y, legend= 'calories over time', line_width = 2)
+	    )
 
-	extra_y = [85, 84, 82, 83, 83, 82, 85]
+        plot.line(x, y, legend= 'calories over time', line_width = 2, name="calories")
 	plot.extra_y_ranges['weight'] = Range1d(70, 90)
 
+	
 	#plot.multi_line([x, y], [x, extra_y], color=["firebrick", "navy"], line_width=4)
         plot.add_layout(LinearAxis(y_range_name="weight", axis_label="Weight"), 'right') 
-	plot.line(x, extra_y, legend= 'weight over time', line_width = 2, y_range_name="weight", color="firebrick")
+	plot.line(x, extra_y, legend= 'weight over time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
+
         #Store components 
         script, div = components(plot)
 
