@@ -17,11 +17,11 @@ def client1(request):
             is_supervisor = user_profile.supervisor
         x= [1,3,5,7,9,11,13]
         y= [1,2,3,4,5,6,7]
-        title = 'y = f(x)'
+        title = 'Weight and Calories over Time'
 
         plot = figure(title= title , 
-            x_axis_label= 'X-Axis', 
-            y_axis_label= 'Y-Axis', 
+            x_axis_label= 'Time', 
+            y_axis_label= 'Calories', 
             plot_width =400,
             plot_height =400)
 
