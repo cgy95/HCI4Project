@@ -26,7 +26,7 @@ def client1(request):
 	
 	hover = HoverTool(tooltips=[
 	    ("calories", "@y kcal"),
-	    ("date", "@x")
+            ("date", "@x")
 	], names=["calories"])
 
 	
@@ -43,18 +43,26 @@ def client1(request):
 
 	    )
 
-        plot.line(x, y, legend= 'calories over time', line_width = 2, name="calories")
+        plot.line(x, y, legend= 'Calories Over Time', line_width = 2, name="calories")
+	plot.circle(x, y, fill_color="blue", size=8, legend= 'Calories Over Time')
 	plot.extra_y_ranges['weight'] = Range1d(70, 90)
 
 	hoverweight = HoverTool(tooltips=[
 	    ("weight", "@y kg"),
-	    ("date", "@x")
+            ("date", "@x")
 	], names=["weight"])
 	
 	#plot.multi_line([x, y], [x, extra_y], color=["firebrick", "navy"], line_width=4)
         plot.add_layout(LinearAxis(y_range_name="weight", axis_label="Weight"), 'right') 
-	plot.line(x, extra_y, legend= 'weight over time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
+        plot.circle(x, extra_y, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
+	plot.line(x, extra_y, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
+        
 	plot.add_tools(hoverweight)
+
+	plot.legend.location = "bottom_left"
+	plot.legend.click_policy="hide"
+        plot.toolbar.logo = None
+	plot.toolbar_location = "above"
 
         #Store components 
         script, div = components(plot)
@@ -78,7 +86,7 @@ def client2(request):
 	
 	hover = HoverTool(tooltips=[
 	    ("calories", "@y kcal"),
-	    ("date", "@x")
+            ("date", "@x")
 	], names=["calories"])
 
 	
@@ -95,18 +103,26 @@ def client2(request):
 
 	    )
 
-        plot.line(x, y, legend= 'calories over time', line_width = 2, name="calories")
+        plot.line(x, y, legend= 'Calories Over Time', line_width = 2, name="calories")
+	plot.circle(x, y, fill_color="blue", size=8, legend= 'Calories Over Time')
 	plot.extra_y_ranges['weight'] = Range1d(70, 90)
 
 	hoverweight = HoverTool(tooltips=[
-	    ("weight", "@y"),
-            ("date", "@x kg")
+	    ("weight", "@y kg"),
+            ("date", "@x")
 	], names=["weight"])
 	
 	#plot.multi_line([x, y], [x, extra_y], color=["firebrick", "navy"], line_width=4)
         plot.add_layout(LinearAxis(y_range_name="weight", axis_label="Weight"), 'right') 
-	plot.line(x, extra_y, legend= 'weight over time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
+        plot.circle(x, extra_y, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
+	plot.line(x, extra_y, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
+        
 	plot.add_tools(hoverweight)
+
+	plot.legend.location = "bottom_left"
+	plot.legend.click_policy="hide"
+        plot.toolbar.logo = None
+	plot.toolbar_location = "above"
 
         #Store components 
         script, div = components(plot)
@@ -147,8 +163,8 @@ def client3(request):
 
 	    )
 
-        plot.line(x, y, legend= 'calories over time', line_width = 2, name="calories")
-	plot.circle(x, y, fill_color="blue", size=8)
+        plot.line(x, y, legend= 'Calories Over Time', line_width = 2, name="calories")
+	plot.circle(x, y, fill_color="blue", size=8, legend= 'Calories Over Time')
 	plot.extra_y_ranges['weight'] = Range1d(70, 90)
 
 	hoverweight = HoverTool(tooltips=[
@@ -158,11 +174,15 @@ def client3(request):
 	
 	#plot.multi_line([x, y], [x, extra_y], color=["firebrick", "navy"], line_width=4)
         plot.add_layout(LinearAxis(y_range_name="weight", axis_label="Weight"), 'right') 
-        plot.circle(x, extra_y, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight")
-	plot.line(x, extra_y, legend= 'weight over time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
-        print extra_y
+        plot.circle(x, extra_y, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
+	plot.line(x, extra_y, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
         
 	plot.add_tools(hoverweight)
+
+	plot.legend.location = "bottom_left"
+	plot.legend.click_policy="hide"
+        plot.toolbar.logo = None
+	plot.toolbar_location = "above"
 
         #Store components 
         script, div = components(plot)
