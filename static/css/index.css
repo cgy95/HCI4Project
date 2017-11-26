@@ -20,6 +20,20 @@
     cursor: pointer;
 }
 
+.popup2 {
+    top:175px;
+    height: 20px;
+    border-style: solid;
+    border-radius: 1px;
+    border-width: 1px;
+    border-color: black;
+    width: 200px;
+    padding: 8px;
+    left:800px;
+    position: relative;
+    cursor: pointer;
+}
+
 /* The actual popup (appears on top) */
 .popup1 .popuptext {
     visibility: hidden;

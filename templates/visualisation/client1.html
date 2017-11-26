@@ -8,7 +8,7 @@
        <div id= mainSection class="inner cover">
             <h1 class="heading">GainzBro23's Progress! </h1><br>
               
-	    <div class="popup1" onclick="myFunction()">Summary <br><br><br>
+	    <div class="popup1" onclick="displaySummary()">Summary <br><br><br>
 	        <a class="popuptext" id="summaryPopup">Starting Weight: 85kg</a><br><br>
                 <a class="popuptext" id="summaryPopup2">End Weight: 85kg</a><br><br>
                 <a class="popuptext" id="summaryPopup3">Weight Change: 0kg</a>
@@ -16,7 +16,7 @@
 
 	    <script>
 	// When the user clicks on div, open the popup
-	    function myFunction() {
+	    function displaySummary() {
 	    	var popup = document.getElementById("summaryPopup");
                 var popup2 = document.getElementById("summaryPopup2");
                 var popup3 = document.getElementById("summaryPopup3");
@@ -25,6 +25,10 @@
                 popup3.classList.toggle("show");
 	    }
 	    </script>
+
+            <div class="popup2">Weight Change <br><br><br>
+	        <!-- possibly put in the pie/bar chart here-->
+	    </div>
 
               <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
               {{ div | safe }}
