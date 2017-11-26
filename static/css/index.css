@@ -7,6 +7,45 @@
     height: 400px;
 }
 
+.popup1 {
+    height: 20px;
+    border-style: solid;
+    border-radius: 1px;
+    border-width: 1px;
+    border-color: black;
+    width: 200px;
+    padding: 8px;
+    left:800px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup1 .popuptext {
+    visibility: hidden;
+    width: 250px;
+    color: black;
+    text-align: center;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup1 .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
 
 .heading {
    text-align: left;
