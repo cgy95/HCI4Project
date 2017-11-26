@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from bokeh.plotting import figure, output_file, show 
 from bokeh.embed import components
 from bokeh.models import LinearAxis, Range1d
-from bokeh.models import HoverTool
+from bokeh.models import HoverTool, PanTool, WheelZoomTool
 
 # Create your views here.
 def index(request):
@@ -57,12 +57,15 @@ def client1(request):
         plot.circle(x, extra_y, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
 	plot.line(x, extra_y, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
         
-	plot.add_tools(hoverweight)
+	zoom = WheelZoomTool()
+	plot.add_tools(hoverweight, PanTool(), zoom)
 
 	plot.legend.location = "bottom_left"
 	plot.legend.click_policy="hide"
+	plot.toolbar.active_scroll = zoom
+        
         plot.toolbar.logo = None
-	plot.toolbar_location = "above"
+	plot.toolbar_location = None
 
         #Store components 
         script, div = components(plot)
@@ -117,12 +120,15 @@ def client2(request):
         plot.circle(x, extra_y, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
 	plot.line(x, extra_y, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
         
-	plot.add_tools(hoverweight)
+	zoom = WheelZoomTool()
+	plot.add_tools(hoverweight, PanTool(), zoom)
 
 	plot.legend.location = "bottom_left"
 	plot.legend.click_policy="hide"
+	plot.toolbar.active_scroll = zoom
+        
         plot.toolbar.logo = None
-	plot.toolbar_location = "above"
+	plot.toolbar_location = None
 
         #Store components 
         script, div = components(plot)
@@ -177,12 +183,15 @@ def client3(request):
         plot.circle(x, extra_y, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
 	plot.line(x, extra_y, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
         
-	plot.add_tools(hoverweight)
+	zoom = WheelZoomTool()
+	plot.add_tools(hoverweight, PanTool(), zoom)
 
 	plot.legend.location = "bottom_left"
 	plot.legend.click_policy="hide"
+	plot.toolbar.active_scroll = zoom
+        
         plot.toolbar.logo = None
-	plot.toolbar_location = "above"
+	plot.toolbar_location = None
 
         #Store components 
         script, div = components(plot)
