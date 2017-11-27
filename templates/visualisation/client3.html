@@ -10,9 +10,9 @@
               
 
             <div class="popup1" onclick="myFunction()">Summary <br><br><br>
-	        <a class="popuptext" id="summaryPopup">Starting Weight: 85kg</a><br><br>
-                <a class="popuptext" id="summaryPopup2">End Weight: 85kg</a><br><br>
-                <a class="popuptext" id="summaryPopup3">Weight Change: 0kg</a>
+	        <a class="popuptext" id="summaryPopup">Starting Weight: 98kg</a><br><br>
+                <a class="popuptext" id="summaryPopup2">End Weight: 81kg</a><br><br>
+                <a class="popuptext" id="summaryPopup3">Weight Change: -17kg</a>
 	    </div>
 
 	    <script>
@@ -27,10 +27,24 @@
 	    }
 	    </script>
 
-            <div class="popup2">Weight Change <br><br><br>
+            <div class="popup2" onclick="displayGraph()">Weight Change <br><br><br>
 	        <!-- possibly put in the pie/bar chart here-->
+		<a class="popuptext" id="graph">
+			<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
+			{{ div1 | safe }}
+			<script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+			{{ script1 | safe }}
+		</a><br><br>
 	    </div>
 
+	    <script>
+	// When the user clicks on div, open the popup
+	    function displayGraph() {
+	    	var popup = document.getElementById("graph");
+	    	popup.classList.toggle("show");
+		
+	    }
+	    </script>
               <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
               {{ div | safe }}
               <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>

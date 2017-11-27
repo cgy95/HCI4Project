@@ -49,6 +49,21 @@
     animation: fadeIn 1s
 }
 
+.popup2 .popuptext {
+    visibility: hidden;
+    width: 250px;
+    color: black;
+    text-align: center;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup2 .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
     from {opacity: 0;}
