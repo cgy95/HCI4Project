@@ -3,14 +3,14 @@ from registration.models import UserProfile
 from django.contrib.auth.models import User
 from bokeh.plotting import figure, output_file, show 
 from bokeh.embed import components
-from bokeh.models import LinearAxis, Range1d, Legend, LegendItem 
-from bokeh.models import HoverTool, PanTool, WheelZoomTool
+from bokeh.models import CustomJS, LinearAxis, Range1d, Legend, LegendItem, ColumnDataSource, DataRange1d, Plot, LinearAxis, Grid, HoverTool, PanTool, WheelZoomTool 
 import pandas as pd
 from numpy import pi
-from bokeh.models import ColumnDataSource, DataRange1d, Plot, LinearAxis, Grid
 from bokeh.models.glyphs import HBar
 from bokeh.core.properties import value
 from bokeh.io import show, output_file
+from bokeh.layouts import widgetbox
+from bokeh.models.widgets import Select
 
 
 # Create your views here.
@@ -61,8 +61,9 @@ def client1(request):
 	
 	#plot.multi_line([x, y], [x, extra_y], color=["firebrick", "navy"], line_width=4)
         plot.add_layout(LinearAxis(y_range_name="weight", axis_label="Weight (kg)"), 'right') 
-        plot.circle(x, extra_y, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
-	plot.line(x, extra_y, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
+        source = ColumnDataSource(data=dict(x=x, y=extra_y))
+        plot.circle('x', 'y', source=source, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
+	#plot.line(x, extra_y, source=source, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
         
 	zoom = WheelZoomTool()
 	plot.add_tools(hoverweight, PanTool(), zoom)
@@ -77,6 +78,27 @@ def client1(request):
         #Store components 
         script, div = components(plot)
 
+	#The code which changes kilos to pounds. This needs to be integrated using ajax I think.
+        callback = CustomJS(args=dict(source=source), code="""
+	    var data = source.data;
+	    var f = cb_obj.value
+	    y = data['y']
+            if (f === "Kilos") {
+		    for (i = 0; i < y.length; i++) {
+	 	         y[i] = y[i] / 2.2
+		    }
+            }
+            if (f === "Pounds") {
+		    for (i = 0; i < y.length; i++) {
+	 	         y[i] = y[i] * 2.2
+		    }
+            }
+            source.change.emit();
+	""")
+
+        s = Select(title = 'Units', value="Kilos", options=['Kilos','Pounds'])
+        s.js_on_change('value', callback)
+        select_script,select_div = components(s)
 	#pie chart#
 
 	# a color for each pie piece
@@ -103,7 +125,7 @@ def client1(request):
 	script1, div1 = components(p)
 	
         #Feed them to the Django template.
-        return render(request, 'visualisation/client1.html', {'username': str(username), 'is_supervisor': is_supervisor, 'script' : script , 'div' : div, 'script1' : script1 , 'div1' : div1} )
+        return render(request, 'visualisation/client1.html', {'username': str(username), 'is_supervisor': is_supervisor, 'script' : script , 'div' : div, 'script1' : script1 , 'div1' : div1, 'select_script': select_script, 'select_div': select_div} )
 
 def client2(request):
 
