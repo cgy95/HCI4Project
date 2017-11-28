@@ -63,7 +63,7 @@ def client1(request):
         plot.add_layout(LinearAxis(y_range_name="weight", axis_label="Weight (kg)"), 'right') 
         source = ColumnDataSource(data=dict(x=x, y=extra_y))
         plot.circle('x', 'y', source=source, fill_color="firebrick", line_color="firebrick", size=8, y_range_name="weight", name="weight", legend="Weight Over Time")
-	#plot.line(x, extra_y, source=source, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
+	plot.line(x, extra_y, legend= 'Weight Over Time', line_width = 2, y_range_name="weight", name="weight", color="firebrick")
         
 	zoom = WheelZoomTool()
 	plot.add_tools(hoverweight, PanTool(), zoom)
@@ -289,10 +289,10 @@ def client3(request):
 
 	source = ColumnDataSource(data=data)
 
-	p = figure(x_range=weight, plot_height=250, plot_width=250, title="Weight Change since Start",
+	p = figure(x_range=weight, plot_height=150, plot_width=240, title="Weight Change since 20-Oct-17",
 		   toolbar_location=None, tools="")
 
-	p.vbar_stack(changes, x='weight', width=0.9, color=colors, source=source, name=changes, legend=[value(x) for x in changes])
+	p.vbar_stack(changes, x='weight', width=0.2, color=colors, source=source, name=changes, legend=[value(x) for x in changes])
 
 	hover = HoverTool(tooltips=[
 	    ("Total Weight Loss", "17kg (17.3%)")], names=['change'])
@@ -305,9 +305,8 @@ def client3(request):
 	p.xgrid.grid_line_color = None
 	p.axis.minor_tick_line_color = None
 	p.outline_line_color = None
-	p.legend.location = "top_left"
-	#p.legend.orientation = "horizontal"
-	p.legend.location = "bottom_right"
+	p.legend.orientation = "horizontal"
+	p.legend.location = "bottom_left"
 	p.add_tools(hover, hovercurrent)
 
 	script1, div1 = components(p)

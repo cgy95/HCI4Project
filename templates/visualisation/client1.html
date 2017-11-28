@@ -5,8 +5,10 @@
 {% block body_block %} 
 
 <link rel="stylesheet" href="{{STATIC_URL}}css/index.css" />
-       <div id= mainSection class="inner cover">
-            <h1 class="heading">GainzBro23's Progress! </h1><br>
+<link rel="stylesheet" href="{{STATIC_URL}}css/bokeh-0.12.10.min.css" />
+
+       <div id=client class="inner cover">
+            <h1 class="heading">GainzBro23's Progress! </h1>
               
 	    <div class="popup1" onclick="displaySummary()">Summary <br><br><br>
 	        <a class="popuptext" id="summaryPopup">Starting Weight: 85kg</a><br><br>
@@ -27,6 +29,7 @@
 	    </script>
 
             <div class="popup2" onclick="displayGraph()">Weight Change <br><br><br>
+		<div id="space"></div>
 	        <!-- possibly put in the pie/bar chart here-->
 		<a class="popuptext" id="graph">
 			<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
@@ -45,19 +48,20 @@
 	    }
 	    </script>
 
-            <div>
+            <div id="graphmain">
               <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.0.min.css" rel="stylesheet" type="text/css">
               {{ select_div | safe }}
               <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.0.min.js"></script>
       	      {{ select_script | safe }}
-	    </div><br> <br>
+	     <br>
 
-              <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
+              <!--<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />-->
               {{ div | safe }}
               <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.10.min.js"></script>
               {{ script | safe }}
             </p>
 
+	</div>
 
         </div>
 

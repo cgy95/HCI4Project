@@ -130,4 +130,8 @@ li a:hover, .supervisor-dropdown:hover .supervisor-dropbtn {
     display: block;
 }
 
+body{
+    left: 300px;
+    position: fixed;
+}
 
