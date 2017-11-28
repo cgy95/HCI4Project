@@ -42,7 +42,7 @@
        <div id= mainSection class="inner cover">
             <h1 class="heading2">Welcome {{username}} </h1><br>
             <p class="descAndButtons">Do you want to see your the progress of your Clients? <br> <br>
-            <a href="" id="ClientsRedirect" class="btn btn-lg btn-primary btn-block">Click here to see your clients.</a>
+            <a href="{% url 'client_list' %}" id="ClientsRedirect" class="btn btn-lg btn-primary btn-block">Click here to see your clients.</a>
 
 {% endif %}
 

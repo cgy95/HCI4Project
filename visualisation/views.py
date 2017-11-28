@@ -313,3 +313,15 @@ def client3(request):
 
         #Feed them to the Django template.
         return render(request, 'visualisation/client3.html', {'username': str(username), 'is_supervisor': is_supervisor, 'script' : script , 'div' : div, 'script1' : script1 , 'div1' : div1} )
+
+
+def client_list(request):
+
+    if request.user.is_authenticated():
+        username = request.user.get_username()
+        if request.method == 'GET' and request.user.is_authenticated():
+            user_profile = UserProfile.objects.get(user=request.user)
+            is_supervisor = user_profile.supervisor
+
+    # Render the template depending on the context.
+    return render(request, 'visualisation/client_list.html', {'username': str(username), 'is_supervisor': is_supervisor} )
