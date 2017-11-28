@@ -165,3 +165,50 @@
     height: 80px;
 }
 
+#clientSection {
+    margin-top: 30px;
+    text-align: center;
+    margin: auto;
+    position:relative;
+    top: 50px;
+    width:600px;
+    height: 300px;
+}
+.clientList {
+    position:absolute;
+    right: -150px;
+    width: 900px;
+    list-style-type: none;
+    padding: 0;
+    border: 1px solid #ddd;
+}
+
+.clientList .clientItem {
+    left: 600px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.clientList .clientItem .clientUsername{
+    position: relative;
+    right: 230px;
+    text-align: left;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.clientList .clientItem .clientName {
+    position: relative;
+    top: 15px;
+    left: 150px;
+    text-align: left;
+}
+
+.clientList .clientItem .clientInfo {
+    position: relative;
+    top: -40px;
+    left: 350px;
+    text-align: center;
+}
+
+

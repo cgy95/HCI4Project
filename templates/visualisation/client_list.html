@@ -3,6 +3,34 @@
 {% extends 'base.html' %}
 
 {% block body_block %} 
-
- 
+<link rel="stylesheet" href="{{STATIC_URL}}css/index.css" />
+       <div id= clientSection class="inner cover">
+            <h1 class="heading">{{username}}'s Supervisees! </h1><br>
+ 	    <ul class="clientList">
+  		<li  class="clientItem">
+                        <a href="{% url 'client1' %}" class = "clientUsername">GainzBro23:</a>
+			<p class = "clientName">Travis Boyd</p>
+                        <p class = "clientInfo">This Week: <br> Gained 4kg</p>
+		</li>
+  		<li class="clientItem">
+			<a href= "{% url 'client2' %}" class = "clientUsername">NandosLad46:</a>
+			<p class = "clientName">Ryan MacPherson</p>
+                        <p class = "clientInfo">This Week: <br> Lost 1kg</p>
+		</li>
+  		<li class="clientItem">
+			<a href= "{% url 'client3' %}" class = "clientUsername">ILikeCake99:</a>
+			<p class = "clientName">Cindy Mitchell</p>
+                        <p class = "clientInfo">This Week: <br> Lost 1kg</p>
+		</li>
+                <li class="clientItem">
+			<a class = "clientUsername">AlexK5:</a>
+			<p class = "clientName">Alexandra King</p>
+                        <p class = "clientInfo">This Week: <br> Gained 2kg</p>
+		</li>
+                <li class="clientItem">
+			<a class = "clientUsername">Tim7Hoskins:</a>
+			<p class = "clientName">Timothy Hoskins</p>
+                        <p class = "clientInfo">This Week: <br> Lost 3kg</p>
+		</li>
+	    </ul>
 {% endblock %}

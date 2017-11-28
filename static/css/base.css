@@ -132,6 +132,6 @@ li a:hover, .supervisor-dropdown:hover .supervisor-dropbtn {
 
 body{
     left: 300px;
-    position: fixed;
+    position: absolute;
 }
 
