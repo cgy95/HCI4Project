@@ -16,13 +16,12 @@
 }
 
 #id_username {
-     width: 39%;
+     width: 50%;
      margin-bottom: 20px;
-     margin-left: -13%
 }
 
 #id_password {
-     width: 39%;
+     width: 50%;
      margin-bottom: 60px;
 }
 

@@ -1,8 +1,8 @@
 .unorderedList {
     list-style-type: none;
     position: fixed;
-    top: -2.8%;
     left: 0px;
+    top:-2.5%;
     width: 100%;
     padding: 0px;
     background-color: #333;
@@ -34,7 +34,7 @@
     padding-bottom:14px;
     text-decoration: none;
     float: right;
-    margin-right: 30%;
+    margin-right: 50%;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -55,7 +55,7 @@ li.dropdown {
 }
 
 .dropdown-content {
-    margin-top: 3.6%;
+    margin-top: 0;
     display: none;
     position: absolute;
     background-color: #f9f9f9;
