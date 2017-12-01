@@ -3,36 +3,38 @@
      font-size: 48px;
      font-weight: bold;
      margin: auto;
-     top: 100px;
+     margin-top: 10%;
      position: relative;
      left: 0px;
 }
 
 .page_center {
-     padding-top: 150px;
+     padding-top: 10%;
      margin: auto;
-     width: 600px;
-     height: 600px;
+     width: 70%;
+     height: 83.3%;
 }
 
 
 
 #id_username {
-     width: 500px;
-     margin-bottom: 20px;
+     width: 40%;
+     margin-bottom: 5%;
 }
 
 #id_password {
-     width: 500px;
-     margin-bottom: 20px;
+     width:41%;
+     margin-bottom: 5%;
 }
 
 #id_password2 {
      width: 500px;
-     margin-bottom: 60px;
+     margin-bottom: 5%;
 }
 
 #signUpButton {
-     padding: 35px 220px; 
+     width: 100%;
+     padding: 10%; 
      margin-bottom: 60px;
+     margin-top: -5%;
 }
